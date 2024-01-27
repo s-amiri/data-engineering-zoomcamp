@@ -20,11 +20,14 @@ Do the same for "docker run".
 
 Which tag has the following text? - *Automatically remove the container when it exits* 
 
-- `--delete`
-- `--rc`
-- `--rmc`
-- `--rm`
+- [ ] `--delete`
+- [ ] `--rc`
+- [ ] `--rmc`
+- [x] `--rm`
 
+```bash
+docker run --help | grep "Automatically remove the container when it exits"
+```
 
 ## Question 2. Understanding docker first run 
 
@@ -33,11 +36,14 @@ Now check the python modules that are installed ( use ```pip list``` ).
 
 What is version of the package *wheel* ?
 
-- 0.42.0
-- 1.0.0
-- 23.0.1
-- 58.1.0
+- [x] 0.42.0
+- [ ] 1.0.0
+- [ ] 23.0.1
+- [ ] 58.1.0
 
+```bash
+pip list | grep "wheel"
+```
 
 # Prepare Postgres
 
@@ -61,20 +67,20 @@ Tip: started and finished on 2019-09-18.
 
 Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in the format timestamp (date and hour+min+sec) and not in date.
 
-- 15767
-- 15612
-- 15859
-- 89009
+- [ ] 15767
+- [ ] 15612
+- [ ] 15859
+- [ ] 89009
 
 ## Question 4. Largest trip for each day
 
 Which was the pick up day with the largest trip distance
 Use the pick up time for your calculations.
 
-- 2019-09-18
-- 2019-09-16
-- 2019-09-26
-- 2019-09-21
+- [ ] 2019-09-18
+- [ ] 2019-09-16
+- [ ] 2019-09-26
+- [ ] 2019-09-21
 
 
 ## Question 5. Three biggest pick up Boroughs
@@ -83,10 +89,10 @@ Consider lpep_pickup_datetime in '2019-09-18' and ignoring Borough has Unknown
 
 Which were the 3 pick up Boroughs that had a sum of total_amount superior to 50000?
  
-- "Brooklyn" "Manhattan" "Queens"
-- "Bronx" "Brooklyn" "Manhattan"
-- "Bronx" "Manhattan" "Queens" 
-- "Brooklyn" "Queens" "Staten Island"
+- [ ] "Brooklyn" "Manhattan" "Queens"
+- [ ] "Bronx" "Brooklyn" "Manhattan"
+- [ ] "Bronx" "Manhattan" "Queens" 
+- [ ] "Brooklyn" "Queens" "Staten Island"
 
 
 ## Question 6. Largest tip
@@ -96,10 +102,10 @@ We want the name of the zone, not the id.
 
 Note: it's not a typo, it's `tip` , not `trip`
 
-- Central Park
-- Jamaica
-- JFK Airport
-- Long Island City/Queens Plaza
+- [ ] Central Park
+- [ ] Jamaica
+- [ ] JFK Airport
+- [ ] Long Island City/Queens Plaza
 
 
 
