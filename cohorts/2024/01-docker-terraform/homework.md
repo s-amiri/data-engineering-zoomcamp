@@ -68,9 +68,16 @@ Tip: started and finished on 2019-09-18.
 Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in the format timestamp (date and hour+min+sec) and not in date.
 
 - [ ] 15767
-- [ ] 15612
+- [x] 15612
 - [ ] 15859
 - [ ] 89009
+
+```sql
+SELECT COUNT(*) 
+FROM green_taxi_data
+WHERE DATE(lpep_pickup_datetime) = '2019-09-18' 
+AND DATE(lpep_dropoff_datetime) = '2019-09-18';
+```
 
 ## Question 4. Largest trip for each day
 
@@ -79,21 +86,42 @@ Use the pick up time for your calculations.
 
 - [ ] 2019-09-18
 - [ ] 2019-09-16
-- [ ] 2019-09-26
+- [x] 2019-09-26
 - [ ] 2019-09-21
 
-
+```sql
+SELECT
+	lpep_pickup_datetime::DATE,
+	MAX(trip_distance) AS max_trip_distance
+FROM green_taxi_data
+WHERE lpep_pickup_datetime::DATE BETWEEN '2019-09-16'
+AND '2019-09-26'
+GROUP BY lpep_pickup_datetime::DATE
+ORDER BY 2 DESC;
+```
 ## Question 5. Three biggest pick up Boroughs
 
 Consider lpep_pickup_datetime in '2019-09-18' and ignoring Borough has Unknown
 
 Which were the 3 pick up Boroughs that had a sum of total_amount superior to 50000?
  
-- [ ] "Brooklyn" "Manhattan" "Queens"
+- [x] "Brooklyn" "Manhattan" "Queens"
 - [ ] "Bronx" "Brooklyn" "Manhattan"
 - [ ] "Bronx" "Manhattan" "Queens" 
 - [ ] "Brooklyn" "Queens" "Staten Island"
 
+```sql
+SELECT 
+	"Borough",
+	SUM(total_amount)
+FROM green_taxi_data
+LEFT JOIN zones
+ON "PULocationID" = "LocationID"
+WHERE lpep_pickup_datetime::DATE = '2019-09-18'
+GROUP BY 1
+HAVING SUM(total_amount) > 50000
+ORDER BY 2 DESC;
+```
 
 ## Question 6. Largest tip
 
@@ -104,10 +132,23 @@ Note: it's not a typo, it's `tip` , not `trip`
 
 - [ ] Central Park
 - [ ] Jamaica
-- [ ] JFK Airport
+- [x] JFK Airport
 - [ ] Long Island City/Queens Plaza
 
-
+```sql
+SELECT 
+	z1."Zone" AS pickup_zone,
+	z2."Zone" AS dropoff_zone,
+	MAX(tip_amount) AS max_tip
+FROM green_taxi_data
+LEFT JOIN zones z1
+ON "PULocationID" = z1."LocationID"
+LEFT JOIN zones z2
+ON "DOLocationID" = z2."LocationID"
+WHERE z1."Zone" = 'Astoria'
+GROUP BY 1, 2
+ORDER BY 3 DESC;
+```
 
 ## Terraform
 
