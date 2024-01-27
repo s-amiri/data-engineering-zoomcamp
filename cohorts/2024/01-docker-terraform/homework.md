@@ -170,7 +170,100 @@ terraform apply
 ```
 
 Paste the output of this command into the homework submission form.
+```
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with
+the following symbols:
+  + create
 
+Terraform will perform the following actions:
+
+  # aws_redshift_cluster.my_redshift_cluster will be created
+  + resource "aws_redshift_cluster" "my_redshift_cluster" {
+      + allow_version_upgrade               = true
+      + apply_immediately                   = false
+      + aqua_configuration_status           = (known after apply)
+      + arn                                 = (known after apply)
+      + automated_snapshot_retention_period = 1
+      + availability_zone                   = (known after apply)
+      + cluster_identifier                  = "zoomcamp-redshift-cluster"
+      + cluster_namespace_arn               = (known after apply)
+      + cluster_nodes                       = (known after apply)
+      + cluster_parameter_group_name        = (known after apply)
+      + cluster_public_key                  = (known after apply)
+      + cluster_revision_number             = (known after apply)
+      + cluster_subnet_group_name           = (known after apply)
+      + cluster_type                        = "single-node"
+      + cluster_version                     = "1.0"
+      + database_name                       = (known after apply)
+      + default_iam_role_arn                = (known after apply)
+      + dns_name                            = (known after apply)
+      + encrypted                           = false
+      + endpoint                            = (known after apply)
+      + enhanced_vpc_routing                = (known after apply)
+      + iam_roles                           = (known after apply)
+      + id                                  = (known after apply)
+      + kms_key_id                          = (known after apply)
+      + maintenance_track_name              = "current"
+      + manual_snapshot_retention_period    = -1
+      + master_password                     = (sensitive value)
+      + master_password_secret_arn          = (known after apply)
+      + master_password_secret_kms_key_id   = (known after apply)
+      + master_username                     = "masteruser"
+      + node_type                           = "dc2.large"
+      + number_of_nodes                     = 1
+      + port                                = 5439
+      + preferred_maintenance_window        = (known after apply)
+      + publicly_accessible                 = true
+      + skip_final_snapshot                 = false
+      + tags_all                            = (known after apply)
+      + vpc_security_group_ids              = (known after apply)
+    }
+
+  # aws_s3_bucket.my_bucket will be created
+  + resource "aws_s3_bucket" "my_bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = "private"
+      + arn                         = (known after apply)
+      + bucket                      = "zoomcamp-data-lake"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags_all                    = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+
+      + versioning {
+          + enabled    = true
+          + mfa_delete = false
+        }
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_s3_bucket.my_bucket: Creating...
+aws_redshift_cluster.my_redshift_cluster: Creating...
+aws_s3_bucket.my_bucket: Creation complete after 1s [id=zoomcamp-data-lake]
+aws_redshift_cluster.my_redshift_cluster: Still creating... [10s elapsed]
+aws_redshift_cluster.my_redshift_cluster: Still creating... [20s elapsed]
+aws_redshift_cluster.my_redshift_cluster: Still creating... [30s elapsed]
+aws_redshift_cluster.my_redshift_cluster: Still creating... [40s elapsed]
+aws_redshift_cluster.my_redshift_cluster: Still creating... [50s elapsed]
+aws_redshift_cluster.my_redshift_cluster: Still creating... [1m0s elapsed]
+aws_redshift_cluster.my_redshift_cluster: Creation complete after 1m4s [id=zoomcamp-redshift-cluster]
+```
 
 ## Submitting the solutions
 
