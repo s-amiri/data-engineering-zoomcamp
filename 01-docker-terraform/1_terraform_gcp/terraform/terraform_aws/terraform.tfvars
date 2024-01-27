@@ -1,3 +1,7 @@
 region      = "eu-central-1"
 bucket_name = "zoomcamp-data-lake"
 acl         = "private"
+redshift_cluster_identifier = "zoomcamp-redshift-cluster"
+redshift_node_type = "dc2.large"
+redshift_master_username = "masteruser"
+redshift_master_password = "w6xPfQVn-_"
