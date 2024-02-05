@@ -1,5 +1,7 @@
 ## Module 1 Homework
 
+ATTENTION: At the very end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format (such as SQL queries or shell commands), please include these directly in the README file of your repository.
+
 ## Docker & SQL
 
 In this homework we'll prepare the environment 
@@ -79,9 +81,9 @@ WHERE DATE(lpep_pickup_datetime) = '2019-09-18'
 AND DATE(lpep_dropoff_datetime) = '2019-09-18';
 ```
 
-## Question 4. Largest trip for each day
+## Question 4. Longest trip for each day
 
-Which was the pick up day with the largest trip distance
+Which was the pick up day with the longest trip distance?
 Use the pick up time for your calculations.
 
 - [ ] 2019-09-18
